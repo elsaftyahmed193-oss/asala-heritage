@@ -1,0 +1,161 @@
+{
+  "store": {
+    "name": "أصالة التراث المصري",
+    "tagline": "أصالة مدى الحياة • من صميم التراث المصري",
+    "topbar": "أصالة مدى الحياة ♾️ - صدف طبيعي 100% - صناعة يدوية من خان الخليلي - شحن من الكويت للعالم",
+    "heroTitle": "قطعة من مصر، وحكاية في بيتك",
+    "heroDesc": "من بريق الصدف الطبيعي ودِفء الخشب الأصيل، نصنع قطعاً تحمل روح التراث المصري.",
+    "heroButtonPrimary": "اكتشف المجموعة",
+    "heroButtonSecondary": "اطلب قطعة بمقاسك",
+    "waNumber": "96551118069",
+    "email": "hello@asala-heritage.com",
+    "instagram": "https://www.instagram.com/asalat.al.torath.kw.eg",
+    "facebook": "https://www.facebook.com/share/1ddcccaFpo/?mibextid=wwXIfr",
+    "tiktok": "https://www.tiktok.com/@asalat.al.torath5",
+    "logoUrl": "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=300&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=1600&q=80",
+    "storyText": "في ورشتنا في خان الخليلي، نختار كل شظية صدف بعناية، ثم ندمجها مع الخشب الأصيل في أشكال مستوحاة من العمارة الإسلامية والفنون المصرية القديمة."
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "كرسي مشبك قابل للطي مطعم صدف مصري طبيعي",
+      "nameEn": "Islamic Folding Chair",
+      "sku": "ASALA-MESH-CH-001",
+      "version": "إصدار المجالس العربية 2024 - قطعة متحفية محدودة",
+      "category": "أثاث ملكي",
+      "description": "تحفة فنية نادرة من روائع الفن الإسلامي، كرسي مشبك قابل للطي مطعم صدف مصري طبيعي 100%، يظهر بظهر منحني من خمس شرائح مزخرفة بنجمة الشمس، مع أبعاد فاخرة وقابلية للطي والتخزين.",
+      "details": "خشب زان طبيعي + صدف مصري طبيعي • الارتفاع 110سم • تصميم فاخر • صناعة مصرية",
+      "price": 145,
+      "oldPrice": 123,
+      "discount": 15,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 2,
+      "name": "ترابيزة فلامنجو (الثمانية)",
+      "nameEn": "Flamingo Octagon Table",
+      "sku": "ASALA-TAB-FLAM-003",
+      "version": "إصدار التراث المغربي 2024",
+      "category": "ترابيزات",
+      "description": "ترابيزة جانبية مثمنة بنقشة النجمة الإسلامية المتداخلة، قوائم محرابية، مطعمة صدف أبيض وعسلي، تصميم متوازن وفاخر.",
+      "details": "خشب زان + صدف طبيعي • طراز عربي إسلامي • مثمن الشكل • متين ومصمم يدويًا",
+      "price": 95,
+      "oldPrice": 65,
+      "discount": 32,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 3,
+      "name": "ترابيزة أبا نجمة",
+      "nameEn": "Aba Najma Table",
+      "sku": "ASALA-TAB-NAJMA-005",
+      "version": "إصدار النجم المركزي 2024",
+      "category": "ترابيزات",
+      "description": "ترابيزة فاخرة بنقشة النجمة المركزية، مزخرفة بصدف طبيعي أبيض، أسود، ذهبي، وألوان محمصة، وتُعد قطعة فنية مميزة للديكور العربي.",
+      "details": "صدف مصري طبيعي 100% • خشب زان روماني • تنسيق عربي إسلامي • مناسبة للمجالس",
+      "price": 95,
+      "oldPrice": 75,
+      "discount": 21,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 4,
+      "name": "مبخرة صدف + طقم",
+      "nameEn": "Mabkhara Set",
+      "sku": "ASALA-MABKHARA-SET-009",
+      "version": "إصدار البخور العربي 2024",
+      "category": "مباخر",
+      "description": "طقم مبخرة وعلبة مناديل مطعم فسيفساء صدف طبيعي وأبالون ملون، بنقوش هندسية عربية راقية.",
+      "details": "صدف طبيعي 100% • تصميم عربي فخم • مناسب للديكور التراثي • يدوي بالكامل",
+      "price": 42,
+      "oldPrice": 32,
+      "discount": 24,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 5,
+      "name": "كرسي العرش الملكي مطعم صدف كامل",
+      "nameEn": "Throne Chair",
+      "sku": "ASALA-THRONE-007",
+      "version": "إصدار الملوك 2024",
+      "category": "أثاث ملكي",
+      "description": "كرسي عرش ملكي ضخم، ظهر عالي مطعم صدف بالكامل بزخرفة مشربية وزهور إسلامية، مقعد منجد قطيفة ملكي، أرجل منحوتة، قطعة قصور فاخرة.",
+      "details": "صدف كامل • ظهر عالي • مقعد قطيفي • تصميم قصور ملكية",
+      "price": 295,
+      "oldPrice": 250,
+      "discount": 15,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 6,
+      "name": "صندوق عروسة مثمن مطعم صدف",
+      "nameEn": "Dowry Box",
+      "sku": "ASALA-BOX-AROSA-006",
+      "version": "إصدار العروسة الملكية 2024",
+      "category": "صناديق",
+      "description": "صندوق عروسة فاخر مثمن لحفظ المجوهرات والذكريات الثمينة، مطعم صدف كامل بنقشة هندسية إسلامية، قفل نحاسي، بطانة داخلية قطيفة.",
+      "details": "مجوهرات • عروسة • قطيفة داخلية • قفل نحاسي",
+      "price": 85,
+      "oldPrice": 72,
+      "discount": 15,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 7,
+      "name": "صندوق بخور ومجوهرات 6 درج مطعم صدف",
+      "nameEn": "Incense & Jewelry Chest",
+      "sku": "ASALA-BOX-BAKHOOR-010",
+      "version": "إصدار القصور العثمانية 2024 - إصدار محدود 50 قطعة فقط",
+      "category": "صناديق",
+      "description": "صندوق بخور فاخر بـ 6 أدراج وواجهة قابلة للطي، مطعم صدف مصري طبيعي 100% مع أبالون، مقابض لؤلؤية، خشب طبيعي، شغل يدوي 100%.",
+      "details": "6 أدراج • بخور • مجوهرات • قفل • مزيج صدف وذهب",
+      "price": 125,
+      "oldPrice": 98,
+      "discount": 22,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": 8,
+      "name": "كونسول بومبيه 3 درج مطعم صدف",
+      "nameEn": "Bombe Console",
+      "sku": "ASALA-CONSOL-3DRW-002",
+      "version": "إصدار القصور الملكي 2024",
+      "category": "أثاث ملكي",
+      "description": "كونسول بومبيه بواجهة منحنية، 3 درج بزخرفة نجمة ثمانية، أرجل محفورة، تطعيم صدف كامل، قطعة فاخرة ومتحفية.",
+      "details": "3 أدراج • بومبيه • صدف كامل • منحني الشكل • تصميم ملكي",
+      "price": 262,
+      "oldPrice": 222,
+      "discount": 15,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "سارة م.",
+      "country": "الكويت",
+      "rating": 5,
+      "text": "قطعة أنيقة جداً، والتفاصيل ممتازة، واللون طالع مثالي جدًا."
+    },
+    {
+      "name": "عبدالله ر.",
+      "country": "الرياض",
+      "rating": 5,
+      "text": "الخدمة رائعة، والتسليم سريع، والمنتج أشبه بمقتنى تراثي حقيقي."
+    },
+    {
+      "name": "مريم ع.",
+      "country": "دبي",
+      "rating": 5,
+      "text": "التفاصيل راقية جدًا، ومش حسيت إن القطعة مجرد ديكور، بل هي تحفة فنية."
+    }
+  ]
+}

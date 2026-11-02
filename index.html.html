@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم - أصالة التراث المصري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#0b0908;
+      --wine:#6d2230;
+      --wine-deep:#4a1620;
+      --gold:#c6a86a;
+      --gold-light:#d9bd82;
+      --beige:#f9f5ef;
+      --muted:#6c584d;
+      --white:#fff;
+      --shadow:0 12px 28px rgba(0,0,0,0.08);
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; font-family:'Cairo', sans-serif; background:var(--beige); color:var(--black); direction:rtl;
+    }
+    a{text-decoration:none;color:inherit;}
+    button,input,textarea{ font:inherit; }
+    h1,h2,h3,h4,h5,h6{ font-family:'Amiri', serif; margin:0; }
+    .container{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
+    .topbar{
+      background:var(--wine-deep); color:var(--gold-light); padding:14px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .topbar h2{ font-size:2rem; }
+    .topbar button{
+      border:none; background:#8a1c1c; color:#fff; padding:9px 14px; border-radius:10px; font-weight:700; cursor:pointer;
+    }
+    .tabs{
+      display:flex; gap:12px; flex-wrap:wrap; background:#fff; padding:12px 16px; border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+    .tab-btn{
+      border:none; background:transparent; padding:10px 16px; border-radius:10px; font-weight:700; cursor:pointer; color:var(--wine-deep);
+    }
+    .tab-btn.active{
+      background:var(--wine); color:#fff;
+    }
+    .content{
+      padding:18px;
+    }
+    .panel{
+      display:none;
+    }
+    .panel.active{
+      display:block;
+    }
+    .card{
+      background:#fff; border-radius:18px; box-shadow:var(--shadow); padding:20px; margin-bottom:20px;
+    }
+    .two-col{
+      display:grid; grid-template-columns:1fr 1fr; gap:16px;
+    }
+    .field{
+      display:grid; gap:8px; margin-bottom:12px;
+    }
+    .field label{
+      font-weight:700; color:var(--wine-deep);
+    }
+    .field input, .field textarea, .field select{
+      width:100%; border:1px solid #ddd; border-radius:10px; padding:12px 14px; background:#fff;
+    }
+    .field textarea{ min-height:110px; resize:vertical; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:12px 18px;
+      border:none; border-radius:12px; cursor:pointer; font-weight:800;
+    }
+    .btn-primary{ background:var(--wine); color:#fff; }
+    .btn-gold{ background:var(--gold); color:var(--wine-deep); }
+    .btn-danger{ background:#c74d4d; color:#fff; }
+
+    .product-list{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px;
+    }
+    .product-item{
+      background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:16px; padding:12px;
+    }
+    .product-item img{
+      width:100%; height:150px; object-fit:cover; border-radius:12px; margin-bottom:10px;
+    }
+    .product-item h4{
+      font-size:1.1rem; margin-bottom:6px; color:var(--wine-deep);
+    }
+    .product-item .small{
+      color:var(--muted); font-size:13px; margin-bottom:10px;
+    }
+    .product-item-actions{
+      display:flex; gap:8px; margin-top:10px;
+    }
+    .product-item-actions button{
+      flex:1; border:none; border-radius:8px; padding:9px 10px; font-weight:700; cursor:pointer;
+    }
+    .edit{ background:#f3ead9; color:var(--wine-deep); }
+    .delete{ background:#f3d4d4; color:#8a1c1c; }
+
+    .login-wrap{
+      min-height:100vh; display:grid; place-items:center; background:linear-gradient(135deg, #f8eee4, #f0e2d0);
+    }
+    .login-box{
+      background:#fff; border-radius:22px; box-shadow:var(--shadow); width:min(420px, calc(100% - 24px)); padding:24px;
+    }
+    .login-box h2{
+      font-size:2.3rem; color:var(--wine-deep); margin-bottom:16px;
+    }
+    .login-box .field{ margin-bottom:14px; }
+    .hidden{ display:none !important; }
+
+    @media (max-width:700px){
+      .two-col{ grid-template-columns:1fr; }
+      .topbar{ flex-wrap:wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loginScreen" class="login-wrap">
+    <div class="login-box">
+      <h2>لوحة التحكم</h2>
+      <div class="field">
+        <label>البريد الإلكتروني</label>
+        <input id="emailInput" type="email" value="admin@asala.com" />
+      </div>
+      <div class="field">
+        <label>كلمة المرور</label>
+        <input id="passInput" type="password" value="asala2026" />
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="login()">دخول</button>
+    </div>
+  </div>
+
+  <div id="adminApp" class="hidden">
+    <div class="topbar">
+      <h2>لوحة تحكم أصالة التراث</h2>
+      <button onclick="logout()">خروج</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('products')">📦 المنتجات</button>
+      <button class="tab-btn" onclick="showTab('settings')">🏠 الإعدادات</button>
+      <button class="tab-btn" onclick="showTab('backup')">💾 تصدير / استيراد</button>
+    </div>
+
+    <div class="content">
+      <div id="products" class="panel active">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:12px;">
+            <h3>إدارة المنتجات</h3>
+            <button class="btn btn-gold" onclick="openProductForm()">+ إضافة منتج جديد</button>
+          </div>
+          <div class="product-list" id="adminProductList"></div>
+        </div>
+      </div>
+
+      <div id="settings" class="panel">
+        <div class="card">
+          <h3>الإعدادات العامة</h3>
+          <div class="two-col">
+            <div class="field"><label>اسم المتجر</label><input id="storeName" /></div>
+            <div class="field"><label>الشعار / رابط الصورة</label><input id="logoUrl" /></div>
+            <div class="field"><label>نص الشريط العلوي</label><input id="topbar" /></div>
+            <div class="field"><label>رقم الواتساب</label><input id="waNumber" /></div>
+            <div class="field"><label>عنوان الغلاف</label><input id="heroTitle" /></div>
+            <div class="field"><label>رابط صورة الغلاف</label><input id="heroImage" /></div>
+            <div class="field" style="grid-column:1/-1;"><label>وصف الغلاف</label><textarea id="heroDesc"></textarea></div>
+            <div class="field"><label>رابط إنستغرام</label><input id="instagram" /></div>
+            <div class="field"><label>رابط فيسبوك</label><input id="facebook" /></div>
+            <div class="field"><label>رابط تيك توك</label><input id="tiktok" /></div>
+            <div class="field"><label>البريد الإلكتروني</label><input id="email" /></div>
+            <div class="field" style="grid-column:1/-1;"><label>نص حكاية الصنعة</label><textarea id="storyText"></textarea></div>
+          </div>
+          <div style="margin-top:18px;">
+            <button class="btn btn-primary" onclick="saveSettings()">حفظ الإعدادات</button>
+            <button class="btn btn-gold" onclick="restoreDefaults()">استعادة الافتراضي</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="backup" class="panel">
+        <div class="card">
+          <h3>تصدير / استيراد</h3>
+          <p style="margin-bottom:18px; color:var(--muted);">تصدير ملف JSON مع جميع البيانات ثم رفعه إلى GitHub مكان الملف القديم لتحديث الموقع للأعضاء.</p>
+          <button class="btn btn-primary" onclick="exportJson()">📥 تصدير products.json</button>
+          <input id="importFile" type="file" accept=".json" style="margin-top:16px;" />
+          <button class="btn btn-gold" style="margin-top:12px;" onclick="importJson()">📤 استيراد ملفات JSON</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="productModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.54); align-items:center; justify-content:center; padding:20px; z-index:50;">
+    <div style="background:#fff; width:min(760px,100%); border-radius:18px; padding:20px; box-shadow:0 18px 50px rgba(0,0,0,0.2);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3>إضافة / تعديل منتج</h3>
+        <button class="btn btn-danger" onclick="closeProductModal()">إغلاق</button>
+      </div>
+
+      <div class="two-col">
+        <div class="field"><label>اسم المنتج</label><input id="pName" /></div>
+        <div class="field"><label>اسم المنتج بالإنجليزي</label><input id="pNameEn" /></div>
+        <div class="field"><label>SKU</label><input id="pSku" /></div>
+        <div class="field"><label>الإصدار</label><input id="pVersion" /></div>
+        <div class="field"><label>التصنيف</label><input id="pCategory" /></div>
+        <div class="field"><label>رابط الصورة</label><input id="pImage" /></div>
+        <div class="field"><label>السعر الحالي</label><input id="pPrice" type="number" /></div>
+        <div class="field"><label>السعر القديم</label><input id="pOldPrice" type="number" /></div>
+        <div class="field"><label>نسبة الخصم</label><input id="pDiscount" type="number" /></div>
+        <div class="field"><label>الحالة</label>
+          <select id="pFeatured">
+            <option value="false">عادي</option>
+            <option value="true">مميز</option>
+          </select>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label>الوصف</label>
+          <textarea id="pDescription"></textarea>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label>التفاصيل</label>
+          <textarea id="pDetails"></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <button class="btn btn-primary" onclick="saveProduct()">حفظ المنتج</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "asala_admin_data";
+    const defaultState = {
+      store: {
+        name: "أصالة التراث المصري",
+        topbar: "أصالة مدى الحياة ♾️ - صدف طبيعي 100% - صناعة يدوية من خان الخليلي - شحن من الكويت للعالم",
+        heroTitle: "قطعة من مصر، وحكاية في بيتك",
+        heroDesc: "من بريق الصدف الطبيعي ودِفء الخشب الأصيل، نصنع قطعاً تحمل روح التراث المصري.",
+        heroButtonPrimary: "اكتشف المجموعة",
+        heroButtonSecondary: "اطلب قطعة بمقاسك",
+        waNumber: "96551118069",
+        email: "hello@asala-heritage.com",
+        instagram: "https://www.instagram.com/asalat.al.torath.kw.eg",
+        facebook: "https://www.facebook.com/share/1ddcccaFpo/?mibextid=wwXIfr",
+        tiktok: "https://www.tiktok.com/@asalat.al.torath5",
+        logoUrl: "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=300&q=80",
+        heroImage: "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=1600&q=80",
+        storyText: "في ورشتنا في خان الخليلي، نختار كل شظية صدف بعناية، ثم ندمجها مع الخشب الأصيل في أشكال مستوحاة من العمارة الإسلامية والفنون المصرية القديمة."
+      },
+      products: [
+        {
+          id: 1,
+          name: "كرسي مشبك قابل للطي مطعم صدف مصري طبيعي",
+          nameEn: "Islamic Folding Chair",
+          sku: "ASALA-MESH-CH-001",
+          version: "إصدار المجالس العربية 2024 - قطعة متحفية محدودة",
+          category: "أثاث ملكي",
+          description: "تحفة فنية نادرة من روائع الفن الإسلامي، كرسي مشبك قابل للطي مطعم صدف مصري طبيعي 100%.",
+          details: "خشب زان طبيعي + صدف مصري طبيعي • الارتفاع 110سم • تصميم فاخر • صناعة مصرية",
+          price: 145,
+          oldPrice: 123,
+          discount: 15,
+          featured: true,
+          image: "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=900&q=80"
+        }
+      ],
+      reviews: []
+    };
+
+    let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || JSON.parse(JSON.stringify(defaultState));
+    let currentEditId = null;
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function login() {
+      const email = document.getElementById('emailInput').value.trim();
+      const pass = document.getElementById('passInput').value.trim();
+
+      if (email === 'admin@asala.com' && pass === 'asala2026') {
+        document.getElementById('loginScreen').classList.add('hidden');
+        document.getElementById('adminApp').classList.remove('hidden');
+        loadState();
+        renderProducts();
+      } else {
+        alert('بيانات الدخول غير صحيحة');
+      }
+    }
+
+    function logout() {
+      document.getElementById('adminApp').classList.add('hidden');
+      document.getElementById('loginScreen').classList.remove('hidden');
+    }
+
+    function loadState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        state = JSON.parse(saved);
+      } else {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultState));
+        state = JSON.parse(JSON.stringify(defaultState));
+      }
+      fillSettingsInputs();
+    }
+
+    function fillSettingsInputs() {
+      document.getElementById('storeName').value = state.store.name || "";
+      document.getElementById('logoUrl').value = state.store.logoUrl || "";
+      document.getElementById('topbar').value = state.store.topbar || "";
+      document.getElementById('waNumber').value = state.store.waNumber || "";
+      document.getElementById('heroTitle').value = state.store.heroTitle || "";
+      document.getElementById('heroImage').value = state.store.heroImage || "";
+      document.getElementById('heroDesc').value = state.store.heroDesc || "";
+      document.getElementById('instagram').value = state.store.instagram || "";
+      document.getElementById('facebook').value = state.store.facebook || "";
+      document.getElementById('tiktok').value = state.store.tiktok || "";
+      document.getElementById('email').value = state.store.email || "";
+      document.getElementById('storyText').value = state.store.storyText || "";
+    }
+
+    function showTab(tab) {
+      document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      const index = tab === 'products' ? 0 : tab === 'settings' ? 1 : 2;
+      document.querySelectorAll('.tab-btn')[index].classList.add('active');
+    }
+
+    function renderProducts() {
+      const list = document.getElementById('adminProductList');
+      list.innerHTML = state.products.map(item => `
+        <div class=\"product-item\">
+          <img src=\"${item.image}\" alt=\"${item.name}\">
+          <h4>${item.name}</h4>
+          <div class=\"small\">${item.category} • ${item.price} د.ك</div>
+          <div class=\"product-item-actions\">
+            <button class=\"edit\" onclick=\"editProduct(${item.id})\">تعديل</button>
+            <button class=\"delete\" onclick=\"deleteProduct(${item.id})\">حذف</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function openProductForm() {
+      currentEditId = null;
+      document.getElementById('pName').value = '';
+      document.getElementById('pNameEn').value = '';
+      document.getElementById('pSku').value = '';
+      document.getElementById('pVersion').value = '';
+      document.getElementById('pCategory').value = '';
+      document.getElementById('pImage').value = '';
+      document.getElementById('pPrice').value = '';
+      document.getElementById('pOldPrice').value = '';
+      document.getElementById('pDiscount').value = '';
+      document.getElementById('pFeatured').value = 'false';
+      document.getElementById('pDescription').value = '';
+      document.getElementById('pDetails').value = '';
+      document.getElementById('productModal').style.display = 'flex';
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+
+    function editProduct(id) {
+      const item = state.products.find(p => p.id === id);
+      if(!item) return;
+
+      currentEditId = id;
+      document.getElementById('pName').value = item.name || '';
+      document.getElementById('pNameEn').value = item.nameEn || '';
+      document.getElementById('pSku').value = item.sku || '';
+      document.getElementById('pVersion').value = item.version || '';
+      document.getElementById('pCategory').value = item.category || '';
+      document.getElementById('pImage').value = item.image || '';
+      document.getElementById('pPrice').value = item.price || 0;
+      document.getElementById('pOldPrice').value = item.oldPrice || 0;
+      document.getElementById('pDiscount').value = item.discount || 0;
+      document.getElementById('pFeatured').value = item.featured ? 'true' : 'false';
+      document.getElementById('pDescription').value = item.description || '';
+      document.getElementById('pDetails').value = item.details || '';
+      document.getElementById('productModal').style.display = 'flex';
+    }
+
+    function saveProduct() {
+      const product = {
+        id: currentEditId || Date.now(),
+        name: document.getElementById('pName').value.trim(),
+        nameEn: document.getElementById('pNameEn').value.trim(),
+        sku: document.getElementById('pSku').value.trim(),
+        version: document.getElementById('pVersion').value.trim(),
+        category: document.getElementById('pCategory').value.trim(),
+        image: document.getElementById('pImage').value.trim(),
+        price: Number(document.getElementById('pPrice').value) || 0,
+        oldPrice: Number(document.getElementById('pOldPrice').value) || 0,
+        discount: Number(document.getElementById('pDiscount').value) || 0,
+        featured: document.getElementById('pFeatured').value === 'true',
+        description: document.getElementById('pDescription').value.trim(),
+        details: document.getElementById('pDetails').value.trim()
+      };
+
+      if (!product.name || !product.category || !product.image) {
+        alert('يرجى تعبئة الاسم، التصنيف، ورابط الصورة');
+        return;
+      }
+
+      if (currentEditId) {
+        state.products = state.products.map(p => p.id === currentEditId ? product : p);
+      } else {
+        state.products.push(product);
+      }
+
+      saveState();
+      renderProducts();
+      closeProductModal();
+    }
+
+    function deleteProduct(id) {
+      if (!confirm('هل تريد حذف هذا المنتج؟')) return;
+      state.products = state.products.filter(p => p.id !== id);
+      saveState();
+      renderProducts();
+    }
+
+    function saveSettings() {
+      state.store.name = document.getElementById('storeName').value.trim();
+      state.store.logoUrl = document.getElementById('logoUrl').value.trim();
+      state.store.topbar = document.getElementById('topbar').value.trim();
+      state.store.waNumber = document.getElementById('waNumber').value.trim();
+      state.store.heroTitle = document.getElementById('heroTitle').value.trim();
+      state.store.heroImage = document.getElementById('heroImage').value.trim();
+      state.store.heroDesc = document.getElementById('heroDesc').value.trim();
+      state.store.instagram = document.getElementById('instagram').value.trim();
+      state.store.facebook = document.getElementById('facebook').value.trim();
+      state.store.tiktok = document.getElementById('tiktok').value.trim();
+      state.store.email = document.getElementById('email').value.trim();
+      state.store.storyText = document.getElementById('storyText').value.trim();
+
+      saveState();
+      alert('تم حفظ الإعدادات.');
+    }
+
+    function restoreDefaults() {
+      state = JSON.parse(JSON.stringify(defaultState));
+      saveState();
+      fillSettingsInputs();
+      renderProducts();
+      alert('تمت استعادة القيم الافتراضية.');
+    }
+
+    function exportJson() {
+      const json = JSON.stringify(state, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'products.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importJson() {
+      const file = document.getElementById('importFile').files[0];
+      if (!file) return alert('اختر ملف JSON أولاً');
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && parsed.products) {
+            state = parsed;
+            saveState();
+            fillSettingsInputs();
+            renderProducts();
+            alert('تم استيراد البيانات بنجاح');
+          } else {
+            alert('ملف JSON غير صحيح');
+          }
+        } catch (err) {
+          alert('حدث خطأ أثناء قراءة الملف');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function showTab(tab){
+      document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      const idx = tab === 'products' ? 0 : tab === 'settings' ? 1 : 2;
+      document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+    }
+
+    // initial
+    loadState();
+    fillSettingsInputs();
+    renderProducts();
+  </script>
+</body>
+</html>
