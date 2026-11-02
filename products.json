@@ -12,8 +12,8 @@
     "instagram": "https://www.instagram.com/asalat.al.torath.kw.eg",
     "facebook": "https://www.facebook.com/share/1ddcccaFpo/?mibextid=wwXIfr",
     "tiktok": "https://www.tiktok.com/@asalat.al.torath5",
-    "logoUrl": "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=300&q=80",
-    "heroImage": "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=1600&q=80",
+    "logoUrl": "ضع_هنا_رابط_صورة_اللوجو",
+    "heroImage": "ضع_هنا_رابط_صورة_الغلاف",
     "storyText": "في ورشتنا في خان الخليلي، نختار كل شظية صدف بعناية، ثم ندمجها مع الخشب الأصيل في أشكال مستوحاة من العمارة الإسلامية والفنون المصرية القديمة."
   },
   "products": [
@@ -26,11 +26,11 @@
       "category": "أثاث ملكي",
       "description": "تحفة فنية نادرة من روائع الفن الإسلامي، كرسي مشبك قابل للطي مطعم صدف مصري طبيعي 100%، يظهر بظهر منحني من خمس شرائح مزخرفة بنجمة الشمس، مع أبعاد فاخرة وقابلية للطي والتخزين.",
       "details": "خشب زان طبيعي + صدف مصري طبيعي • الارتفاع 110سم • تصميم فاخر • صناعة مصرية",
-      "price": 145,
-      "oldPrice": 123,
+      "price": 123,
+      "oldPrice": 145,
       "discount": 15,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_الكرسي.jpg"
     },
     {
       "id": 2,
@@ -41,11 +41,11 @@
       "category": "ترابيزات",
       "description": "ترابيزة جانبية مثمنة بنقشة النجمة الإسلامية المتداخلة، قوائم محرابية، مطعمة صدف أبيض وعسلي، تصميم متوازن وفاخر.",
       "details": "خشب زان + صدف طبيعي • طراز عربي إسلامي • مثمن الشكل • متين ومصمم يدويًا",
-      "price": 95,
-      "oldPrice": 65,
+      "price": 65,
+      "oldPrice": 95,
       "discount": 32,
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_الترابيزة.jpg"
     },
     {
       "id": 3,
@@ -56,11 +56,11 @@
       "category": "ترابيزات",
       "description": "ترابيزة فاخرة بنقشة النجمة المركزية، مزخرفة بصدف طبيعي أبيض، أسود، ذهبي، وألوان محمصة، وتُعد قطعة فنية مميزة للديكور العربي.",
       "details": "صدف مصري طبيعي 100% • خشب زان روماني • تنسيق عربي إسلامي • مناسبة للمجالس",
-      "price": 95,
-      "oldPrice": 75,
+      "price": 75,
+      "oldPrice": 95,
       "discount": 21,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_ترابيزة_ابا_نجمة.jpg"
     },
     {
       "id": 4,
@@ -71,11 +71,11 @@
       "category": "مباخر",
       "description": "طقم مبخرة وعلبة مناديل مطعم فسيفساء صدف طبيعي وأبالون ملون، بنقوش هندسية عربية راقية.",
       "details": "صدف طبيعي 100% • تصميم عربي فخم • مناسب للديكور التراثي • يدوي بالكامل",
-      "price": 42,
-      "oldPrice": 32,
+      "price": 32,
+      "oldPrice": 42,
       "discount": 24,
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_المبخرة.jpg"
     },
     {
       "id": 5,
@@ -86,11 +86,11 @@
       "category": "أثاث ملكي",
       "description": "كرسي عرش ملكي ضخم، ظهر عالي مطعم صدف بالكامل بزخرفة مشربية وزهور إسلامية، مقعد منجد قطيفة ملكي، أرجل منحوتة، قطعة قصور فاخرة.",
       "details": "صدف كامل • ظهر عالي • مقعد قطيفي • تصميم قصور ملكية",
-      "price": 295,
-      "oldPrice": 250,
+      "price": 250,
+      "oldPrice": 295,
       "discount": 15,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_كرسي_العرش.jpg"
     },
     {
       "id": 6,
@@ -101,11 +101,11 @@
       "category": "صناديق",
       "description": "صندوق عروسة فاخر مثمن لحفظ المجوهرات والذكريات الثمينة، مطعم صدف كامل بنقشة هندسية إسلامية، قفل نحاسي، بطانة داخلية قطيفة.",
       "details": "مجوهرات • عروسة • قطيفة داخلية • قفل نحاسي",
-      "price": 85,
-      "oldPrice": 72,
+      "price": 72,
+      "oldPrice": 85,
       "discount": 15,
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_صندوق_العروسة.jpg"
     },
     {
       "id": 7,
@@ -116,11 +116,11 @@
       "category": "صناديق",
       "description": "صندوق بخور فاخر بـ 6 أدراج وواجهة قابلة للطي، مطعم صدف مصري طبيعي 100% مع أبالون، مقابض لؤلؤية، خشب طبيعي، شغل يدوي 100%.",
       "details": "6 أدراج • بخور • مجوهرات • قفل • مزيج صدف وذهب",
-      "price": 125,
-      "oldPrice": 98,
+      "price": 98,
+      "oldPrice": 125,
       "discount": 22,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_صندوق_6_درج.jpg"
     },
     {
       "id": 8,
@@ -131,11 +131,11 @@
       "category": "أثاث ملكي",
       "description": "كونسول بومبيه بواجهة منحنية، 3 درج بزخرفة نجمة ثمانية، أرجل محفورة، تطعيم صدف كامل، قطعة فاخرة ومتحفية.",
       "details": "3 أدراج • بومبيه • صدف كامل • منحني الشكل • تصميم ملكي",
-      "price": 262,
-      "oldPrice": 222,
+      "price": 222,
+      "oldPrice": 262,
       "discount": 15,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+      "image": "ضع_هنا_اسم_صورة_الكونسول.jpg"
     }
   ],
   "reviews": [
